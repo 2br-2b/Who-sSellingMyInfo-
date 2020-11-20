@@ -30,6 +30,22 @@ function displayPopup() {
     moreInfo.innerHTML = 'More Info';
     popup.appendChild(moreInfo);
 
+    var newline = document.createElement('br');
+    popup.appendChild(newline);
+
+    // Create hide on this website checkbox
+    var checkbox = document.createElement('input');
+    checkbox.setAttribute('id', 'CCPAPersistentHidingCheckbox');
+    checkbox.setAttribute('type', 'checkbox');
+    popup.appendChild(checkbox);
+
+    // Add a checkbox label
+    var checkbox_label = document.createElement('label');
+    checkbox_label.setAttribute('for', 'CCPAPersistentHidingCheckbox');
+    checkbox_label.setAttribute('id', 'CCPAPersistentHidingCheckboxLabel');
+    checkbox_label.innerHTML = ' Don\'t show again on this page';
+    popup.appendChild(checkbox_label);
+
     // Create button
     var button = document.createElement('button');
     button.setAttribute('id', 'CCPAButton');
