@@ -61,11 +61,16 @@ for (var i = 0; i < pageElements.length; i++) {
     }
 }
 
-// Send search result to background script
-if (linkDetected) {
-    displayPopup();
-    browser.runtime.sendMessage({linkDetected: "yes"});
-}
-else {
-    browser.runtime.sendMessage({linkDetected: "no"});
-}
+
+browser.storage.local.get(["x_out_urls"], function (result) {
+    var closed = result.x_out_urls == null ? [] : result.x_out_urls;
+
+    // Send search result to background script
+    if (linkDetected && closed.indexOf(window.location.hostname) < 0) {
+        displayPopup();
+        browser.runtime.sendMessage({linkDetected: "yes"});
+    }
+    else {
+        browser.runtime.sendMessage({linkDetected: "no"});
+    }
+});

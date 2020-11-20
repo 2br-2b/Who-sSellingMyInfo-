@@ -1,5 +1,4 @@
 {
-
   "manifest_version": 2,
   "name": "Who's Selling My Info?",
   "author": "Sean O'Connor",
@@ -27,9 +26,12 @@
         "check_for_link.js",
         "click_scripts.js"
       ],
-      "css":[
+      "css": [
         "popup.css"
       ]
     }
+  ],
+  "permissions": [
+    "storage"
   ]
 }
